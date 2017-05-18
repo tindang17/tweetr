@@ -1,0 +1,52 @@
+/*individual tweets*/
+
+#tweet-display .tweet-box {
+  margin: 0 auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #A9A9A9;
+  margin-top: 20px;
+  border-radius: 6px;
+  opacity: .70;
+}
+
+#tweet-display .tweet-box header {
+  height: 75px;
+
+  border-radius: 6px;
+  background-color: #eee;
+}
+
+#tweet-display .username {
+  line-height: 1.9;
+  font-size: 2em ;
+  text-align: left;
+}
+
+#tweet-display .handle {
+  float: right;
+  line-height: 3;
+  padding-right: 6px;
+}
+
+#tweet-display .avatar {
+  margin: 10px 10px;
+  float: left;
+  border-radius: 10px;
+  height: 57.59px;
+  width: 57.59px;;
+  background-color: beige;
+}
+
+#tweet-display .tweet-input {
+  margin-left: 10px;
+}
+
+#tweet-display .tweet-box footer .tweet-time {
+  margin-left: 10px;
+}
+
+.tweet-box :hover {
+  opacity: 2;
+}
+
