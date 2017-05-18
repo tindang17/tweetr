@@ -8,15 +8,23 @@
   margin-top: 20px;
   border-radius: 6px;
   opacity: .70;
+  z-index: 5;
 }
 
 #tweet-display .tweet-box header {
   height: 75px;
-
   border-radius: 6px;
   background-color: #eee;
 }
 
+#tweet-display .avatar {
+  margin: 10px 10px;
+  float: left;
+  border-radius: 10px;
+  height: 57.59px;
+  width: 57.59px;;
+  background-color: beige;
+}
 #tweet-display .username {
   line-height: 1.9;
   font-size: 2em ;
@@ -29,14 +37,6 @@
   padding-right: 6px;
 }
 
-#tweet-display .avatar {
-  margin: 10px 10px;
-  float: left;
-  border-radius: 10px;
-  height: 57.59px;
-  width: 57.59px;;
-  background-color: beige;
-}
 
 #tweet-display .tweet-input {
   margin-left: 10px;
@@ -46,7 +46,12 @@
   margin-left: 10px;
 }
 
-.tweet-box :hover {
+#tweet-display :hover {
   opacity: 2;
+}
+
+#tweet-display footer i {
+  float: right;
+  padding-right: 10px;
 }
 
