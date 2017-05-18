@@ -7,16 +7,19 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- App CSS -->
 
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet-display.css" type="text/css" />
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/composer_char_counter.js"></script>
   </head>
 
   <body>
@@ -38,6 +41,24 @@
           <span class="counter">140</span>
         </form>
       </section>
+      <!-- the sub-container inside the main container -->
+      <section id="tweet-display">
+        <article class="tweet-box">
+          <header>
+            <img class="avatar" src="/images/bird.png">
+            <span class="username" type="text">Tin</span>
+            <span class="handle">@tin17</span>
+          </header>
+            <p class="tweet-input">your tweets go in here</p>
+          <footer>
+            <span class="tweet-time">10 mins ago</span>
+            <i class="fa fa-retweet"></i>
+            <i class="fa fa-flag"></i>
+            <i class="fa fa-thumbs-up"></i>
+          </footer>
+        </article>
+      </section>
+
     </main>
   </body>
 </html>
