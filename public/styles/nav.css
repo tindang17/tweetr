@@ -22,3 +22,20 @@
   float: left;
 }
 
+#nav-bar .compose-tweet {
+  float: right;
+  height: 60px;
+  width: 120px;
+  border-radius: 6px;
+  margin-top: 10px;
+  font-size: 20px;
+  color: #e8fdff;
+  background-color: #00a087;
+}
+
+#nav-bar:hover button {
+  background-color: grey;
+  color: blue;
+}
+
+
