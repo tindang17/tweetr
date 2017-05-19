@@ -87,15 +87,45 @@ $(document).ready(function() {
 
         $tweet.append($header, $tweetContent, $footer);
 
-
-        console.log($tweet);
-
-
         return $tweet;
 
     }
 
     renderTweets(tweetData);
+// Prevent browser from redirecting when user click submit button
+  var $form = $("form");
+  var $contentInput = $form.find("textarea[name=text]");
+
+  $form.submit(function(evt) {
+    evt.preventDefault();
+    var content = $contentInput.val();
+    $.post('/tweets', {
+      text: content,
+    })
+    .success(function(tweet) {
+      var $tweet = createTweetElement(tweet);
+      $("#tweet-display").prepend($tweet);
+      console.log('SUCCESS', tweet);
+    })
+    .error(function(err) {
+      console.log('ERROR', err);
+    });
+
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
 
 
