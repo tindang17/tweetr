@@ -52,60 +52,84 @@ $(document).ready(function() {
   ];
     // function that render tweet to createTweetElement
 
-    function renderTweets(tweets){
-      $.each(tweets, function(index, tweet) {
-          var $tweet = createTweetElement(tweet)
-          $("#tweet-display").prepend($tweet);
-      });
-    }
+  function renderTweets(tweets){
+    $("#tweet-display").empty();
+    $.each(tweets, function(index, tweet) {
+        var $tweet = createTweetElement(tweet)
+        $("#tweet-display").prepend($tweet);
+    });
+  }
 
 
-    // function that creates tweet element
-    function createTweetElement(tweet) {
-      // todo create header, body and foot element
-      var $tweet = $("<article>").addClass("tweet-box");
+  // function that creates tweet element
+  function createTweetElement(tweet) {
+    // todo create header, body and foot element
+    var $tweet = $("<article>").addClass("tweet-box");
 
       // tweet will be composed of header, body and footer
       // header will include avatar, username and handle
         // Header tag about user:
-        var $header = $("<header>");
-        $("<img>").addClass("avatar").attr("src", tweet.user.avatars.small).appendTo($header);
-        $("<span>").addClass("username").text(tweet.user.name).appendTo($header);
-        $("<span>").addClass("handle").text(tweet.user.handle).appendTo($header);
+      var $header = $("<header>");
+      $("<img>").addClass("avatar").attr("src", tweet.user.avatars.small).appendTo($header);
+      $("<span>").addClass("username").text(tweet.user.name).appendTo($header);
+      $("<span>").addClass("handle").text(tweet.user.handle).appendTo($header);
 
         // Tweet body:
-        var $tweetContent = $("<p>").addClass("tweet-input").text(tweet.content.text);
+      var $tweetContent = $("<p>").addClass("tweet-input").text(tweet.content.text);
 
         // Tweet footer:
-        var $footer = $("<footer>");
-        $("<span>").addClass("tweet-time").text(tweet.created_at).appendTo($footer);
-        $("<i>").addClass("fa fa-retweet").appendTo($footer);
-        $("<i>").addClass("fa fa-flag").appendTo($footer);
-        $("<i>").addClass("fa fa-thumbs-up").appendTo($footer);
+      var $footer = $("<footer>");
+      $("<span>").addClass("tweet-time").text(tweet.created_at).appendTo($footer);
+      $("<i>").addClass("fa fa-retweet").appendTo($footer);
+      $("<i>").addClass("fa fa-flag").appendTo($footer);
+      $("<i>").addClass("fa fa-thumbs-up").appendTo($footer);
 
         // Append header, tweet content and footer to tweet
 
-        $tweet.append($header, $tweetContent, $footer);
+      $tweet.append($header, $tweetContent, $footer);
 
-        return $tweet;
+      return $tweet;
+  }
 
-    }
 
-    renderTweets(tweetData);
-// Prevent browser from redirecting when user click submit button
+
+
   var $form = $("form");
   var $contentInput = $form.find("textarea[name=text]");
-
+  console.log($contentInput);
   $form.submit(function(evt) {
     evt.preventDefault();
     var content = $contentInput.val();
-    // Ajax post request
-    $.ajax({
-      data: $(this).serialize(),
-      url: "/tweets/",
-      method: "POST"
-    }).done(function(){});
+// form validation
+    if(content.length === 0) {
+      alert("Your box is empty");
+    }else if(content.length > 140) {
+      alert("You have exceed character limit");
+    }else{
+      createNewTweet();
+    }
   });
+
+
+
+
+
+
+
+
+
+
+
+// Prevent browser from redirecting when user click submit button
+    // Ajax post request
+
+    function createNewTweet() {
+      $.ajax({
+        data: $form.serialize(),
+        url: "/tweets/",
+        method: "POST"
+      }).done(function(){});
+    }
     // GET request
     function loadTweets() {
       $.ajax({
@@ -117,9 +141,6 @@ $(document).ready(function() {
     }
   loadTweets();
 });
-
-
-
 
 
 
