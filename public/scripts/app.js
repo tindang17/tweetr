@@ -111,15 +111,6 @@ $(document).ready(function() {
   });
 
 
-
-
-
-
-
-
-
-
-
 // Prevent browser from redirecting when user click submit button
     // Ajax post request
 
@@ -128,7 +119,7 @@ $(document).ready(function() {
         data: $form.serialize(),
         url: "/tweets/",
         method: "POST"
-      }).done(function(){});
+      }).done(loadTweets);
     }
     // GET request
     function loadTweets() {
