@@ -34,11 +34,11 @@ module.exports = function(DataHelpers) {
     };
 
 
-    DataHelpers.saveTweet(tweet, (err, tweet) => {
+    DataHelpers.saveTweet(tweet, (err) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        res.status(201).json(tweet);
+        res.status(201).send();
       }
     });
   });
