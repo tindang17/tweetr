@@ -131,6 +131,15 @@ $(document).ready(function() {
       })
     }
   loadTweets();
+// toggle button
+  $("button").click(function() {
+    $(".new-tweet").slideToggle();
+    $('textarea').focus();
+    $("body").scrollTop(0);
+  });
+
+  $(".new-tweet").hide();
+
 });
 
 
