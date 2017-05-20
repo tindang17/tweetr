@@ -15,3 +15,9 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+
+#Screenshot
+ !["Screenshot of tweet compose box with hover feature"](https://github.com/tindang17/tweetr/blob/master/docs/Hover.png)
+ !["Screenshot of empty tweet warning message"](https://github.com/tindang17/tweetr/blob/master/docs/empty-warning-message.png)
+ !["Screenshot of exceed character limit warning message"](https://github.com/tindang17/tweetr/blob/master/docs/exceed-limit-warning-message.png)
+ !["Screenshot of toggle feature"](https://github.com/tindang17/tweetr/blob/master/docs/toggle-button.png)
