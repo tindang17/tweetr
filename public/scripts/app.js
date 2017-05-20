@@ -6,13 +6,6 @@
 $(document).ready(function() {
 
   // function that render tweet to createTweetElement
-  function renderTweets(tweets){
-    $("#tweet-display").empty();
-    $.each(tweets, function(index, tweet) {
-        var $tweet = createTweetElement(tweet);
-        $("#tweet-display").prepend($tweet);
-    });
-  }
 
 
   // function that creates tweet element
@@ -42,6 +35,13 @@ $(document).ready(function() {
     return $tweet;
   }
 
+  function renderTweets(tweets){
+    $("#tweet-display").empty();
+    $.each(tweets, function(index, tweet) {
+      var $tweet = createTweetElement(tweet);
+      $("#tweet-display").prepend($tweet);
+    });
+  }
 
   var $form = $("form");
   var $contentInput = $form.find("textarea[name=text]");
@@ -75,7 +75,7 @@ $(document).ready(function() {
       method: "GET"
     }).done(function(data) {
       renderTweets(data);
-    })
+    });
   }
   loadTweets();
 
