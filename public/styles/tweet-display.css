@@ -9,7 +9,8 @@
   border-radius: 6px;
   overflow-wrap: break-word;
   opacity: .70;
-  z-index: 5;
+  z-index: 20;
+  background-color: blue;
 }
 
 #tweet-display .tweet-box header {
@@ -24,7 +25,6 @@
   border-radius: 10px;
   height: 57.59px;
   width: 57.59px;;
-  background-color: beige;
 }
 #tweet-display .username {
   line-height: 1.9;
@@ -41,18 +41,24 @@
 
 #tweet-display .tweet-input {
   margin-left: 10px;
+  color: white;
 }
 
 #tweet-display .tweet-box footer .tweet-time {
   margin-left: 10px;
+  color: white;
+  padding-bottom: 3px;
 }
 
 #tweet-display :hover {
-  opacity: 2;
+  opacity: 1;
 }
 
 #tweet-display footer i {
   float: right;
   padding-right: 10px;
+  color: white;
+  padding-bottom: 3px;
 }
+
 

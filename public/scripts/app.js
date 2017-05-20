@@ -9,7 +9,7 @@ $(document).ready(function() {
   function renderTweets(tweets){
     $("#tweet-display").empty();
     $.each(tweets, function(index, tweet) {
-        var $tweet = createTweetElement(tweet)
+        var $tweet = createTweetElement(tweet);
         $("#tweet-display").prepend($tweet);
     });
   }
@@ -17,32 +17,29 @@ $(document).ready(function() {
 
   // function that creates tweet element
   function createTweetElement(tweet) {
-    // todo create header, body and foot element
     var $tweet = $("<article>").addClass("tweet-box");
 
-      // tweet will be composed of header, body and footer
-      // header will include avatar, username and handle
-        // Header tag about user:
-      var $header = $("<header>");
-      $("<img>").addClass("avatar").attr("src", tweet.user.avatars.small).appendTo($header);
-      $("<span>").addClass("username").text(tweet.user.name).appendTo($header);
-      $("<span>").addClass("handle").text(tweet.user.handle).appendTo($header);
+    // Tweet header:
+    var $header = $("<header>");
+    $("<img>").addClass("avatar").attr("src", tweet.user.avatars.small).appendTo($header);
+    $("<span>").addClass("username").text(tweet.user.name).appendTo($header);
+    $("<span>").addClass("handle").text(tweet.user.handle).appendTo($header);
 
-        // Tweet body:
-      var $tweetContent = $("<p>").addClass("tweet-input").text(tweet.content.text);
+    // Tweet body:
+    var $tweetContent = $("<p>").addClass("tweet-input").text(tweet.content.text);
 
-        // Tweet footer:
-      var $footer = $("<footer>");
-      $("<span>").addClass("tweet-time").text(tweet.created_at).appendTo($footer);
-      $("<i>").addClass("fa fa-retweet").appendTo($footer);
-      $("<i>").addClass("fa fa-flag").appendTo($footer);
-      $("<i>").addClass("fa fa-thumbs-up").appendTo($footer);
+    // Tweet footer:
+    var $footer = $("<footer>");
+    var $time = moment(tweet.created_at).fromNow();
+    $("<span>").addClass("tweet-time").text($time).appendTo($footer);
+    $("<i>").addClass("fa fa-retweet").appendTo($footer);
+    $("<i>").addClass("fa fa-flag").appendTo($footer);
+    $("<i>").addClass("fa fa-thumbs-up").appendTo($footer);
 
-        // Append header, tweet content and footer to tweet
+    // Append header, tweet content and footer to tweet
+    $tweet.append($header, $tweetContent, $footer);
 
-      $tweet.append($header, $tweetContent, $footer);
-
-      return $tweet;
+    return $tweet;
   }
 
 
@@ -63,26 +60,26 @@ $(document).ready(function() {
   });
 
 
-    // Ajax post request
-
-    function createNewTweet() {
-      $.ajax({
-        data: $form.serialize(),
-        url: "/tweets/",
-        method: "POST"
-      }).done(loadTweets);
-    }
-    // GET request
-    function loadTweets() {
-      $.ajax({
-        url: "/tweets",
-        method: "GET"
-      }).done(function(data) {
-        renderTweets(data);
-      })
-    }
+  // Ajax POST request
+  function createNewTweet() {
+    $.ajax({
+      data: $form.serialize(),
+      url: "/tweets/",
+      method: "POST"
+    }).done(loadTweets);
+  }
+  // GET request
+  function loadTweets() {
+    $.ajax({
+      url: "/tweets",
+      method: "GET"
+    }).done(function(data) {
+      renderTweets(data);
+    })
+  }
   loadTweets();
-// toggle button
+
+  // toggle button
   $("button").click(function() {
     $(".new-tweet").slideToggle();
     $('textarea').focus();

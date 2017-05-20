@@ -1,9 +1,9 @@
 main {
   width: 450px;
   margin: 140px auto 0 auto;
-  background-color: white;
+  background-color: #eee;
   padding: 30px 30px;
-  /*margin-top: 50px;*/
+  z-index: 2;
 }
 
 main h2 {
