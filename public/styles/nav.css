@@ -3,24 +3,21 @@
   top: 0px;
   height: 80px;
   width: 100%;
-  background-color: #5291DE;
+  background-color: cornflowerblue;
   color: #e8fdff;
   padding: 0px 32px;
-  z-index: 40;
-}
+  z-index: 40; }
 
 #nav-bar .logo {
   height: 80px;
   width: 80px;
   float: left;
-  margin: 10px
-}
+  margin: 10px; }
 
 #nav-bar .header {
   line-height: 2;
-  font-size: 2em ;
-  float: left;
-}
+  font-size: 2em;
+  float: left; }
 
 #nav-bar .compose-tweet {
   float: right;
@@ -30,12 +27,8 @@
   margin-top: 10px;
   font-size: 20px;
   color: #e8fdff;
-  background-color: #5291DE;
-}
+  background-color: #5291DE; }
 
 #nav-bar:hover button {
   background-color: grey;
-  color: blue;
-}
-
-
+  color: blue; }

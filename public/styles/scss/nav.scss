@@ -1,0 +1,41 @@
+$sizing-unit : 10px;
+$nav-bar-color: cornflowerblue;
+#nav-bar {
+  position: fixed;
+  top: 0px;
+  height: $sizing-unit * 8;
+  width: 100%;
+  background-color: $nav-bar-color;
+  color: #e8fdff;
+  padding: 0px 32px;
+  z-index: 40;
+}
+
+#nav-bar .logo {
+  height: $sizing-unit * 8;
+  width: $sizing-unit * 8;
+  float: left;
+  margin: $sizing-unit;
+}
+
+#nav-bar .header {
+  line-height: 2;
+  font-size: 2em ;
+  float: left;
+}
+
+#nav-bar .compose-tweet {
+  float: right;
+  height: $sizing-unit * 6;
+  width: $sizing-unit * 12;
+  border-radius: 6px;
+  margin-top: $sizing-unit;
+  font-size: $sizing-unit * 2;
+  color: #e8fdff;
+  background-color: #5291DE;
+}
+
+#nav-bar:hover button {
+  background-color: grey;
+  color: blue;
+}

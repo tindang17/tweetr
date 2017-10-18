@@ -1,0 +1,31 @@
+$sizing-unit : 10px;
+
+main {
+  width: $sizing-unit * 45;
+  margin: $sizing-unit * 14 auto 0 auto;
+  background-color: #eee;
+  padding: $sizing-unit * 3 $sizing-unit * 3;
+  z-index: 2;
+}
+
+main h2 {
+  border-bottom: solid;
+  border-width: 100%;
+}
+
+main section.new-tweet {
+  border: 2px solid grey;
+  border-radius: 6px;
+  padding: $sizing-unit $sizing-unit;
+  margin: 2em 0;
+  background-color: lightgrey;
+}
+
+main textarea {
+  width: 100%;
+  padding: 2px 0 0 2px;
+}
+
+main span.counter {
+  float: right;
+}

@@ -1,12 +1,15 @@
 "use strict";
-
 // Basic express setup:
-
 const PORT          = 8080;
 const express       = require("express");
 const bodyParser    = require("body-parser");
 const app           = express();
-
+// const sassMiddleware = require('node-sass-middleware');
+// const path = require('path');
+// app.use(sassMiddleware({
+//   src: path.join('/vagrant', 'tweeter', 'tweetr', 'public', 'styles', 'scss'),
+//   dest:path.join('/vagrant', 'tweeter', 'tweetr', 'public', 'styles')
+// }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
