@@ -27,7 +27,7 @@ $(document).ready(function() {
     $("<span>").addClass("tweet-time").text($time).appendTo($footer);
     $("<i>").addClass("fa fa-retweet").appendTo($footer);
     $("<i>").addClass("fa fa-flag").appendTo($footer);
-    $("<i>").addClass("fa fa-thumbs-up").appendTo($footer);
+    $("<i>").addClass("fa fa-thumbs-up").text(tweet.like).appendTo($footer);
 
     // Append header, tweet content and footer to tweet
     $tweet.append($header, $tweetContent, $footer);
@@ -89,35 +89,3 @@ $(document).ready(function() {
   $(".new-tweet").hide();
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -30,7 +30,8 @@ module.exports = function(DataHelpers) {
       content: {
         text: req.body.text
       },
-      created_at: Date.now()
+      created_at: Date.now(),
+      like: 0
     };
 
 
@@ -43,6 +44,37 @@ module.exports = function(DataHelpers) {
     });
   });
 
+  tweetsRoutes.get("/like", function(req, res) {
+    DataHelpers.getLike((err, likes) => {
+      if (err) {
+        res.status(500).json({ error: err.message });
+      } else {
+        res.json(likes);
+      }
+    });
+  });
+
+
+  tweetsRoutes.post("/like", function(req, res) {
+    const like = req.body.like;
+    DataHelpers.saveLike(like, (err) => {
+      if (err) {
+        res.status(500).json({ error: err.message});
+      } else {
+        res.status(201).send();
+      }
+    });
+  });
+
+  tweetsRoutes.post("/like/delete", function(req, res) {
+    DataHelpers.deleteLike(like, (err) => {
+      if(err) {
+        res.status(500).json({ error: err.message});
+      } else {
+        res.status(201).send();
+      }
+    });
+  });
 
   return tweetsRoutes;
 

@@ -60,12 +60,21 @@
             <p class="tweet-input">your tweets go in here</p>
           <!-- tweet footer -->
           <footer>
-            <span class="tweet-time">10 mins ago</span>
-            <i class="fa fa-retweet"></i>
-            <i class="fa fa-flag"></i>
-            <i class="fa fa-thumbs-up"></i>
-          </footer>
+            <form action="/tweets/like" method="POST" >
+              <span class="tweet-time">10 mins ago</span>
+              <button type="button" name="retweet">
+                <i class="fa fa-retweet"></i>
+              </button>
 
+              <button type="button" name="flag">
+                <i class="fa fa-flag"></i>
+              </button>
+
+              <button type="button" name="like">
+                <i class="fa fa-thumbs-up"></i>
+              </button>
+            </form>
+          </footer>
         </article>
       </section>
 
