@@ -4,10 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-
-  // function that render tweet to createTweetElement
-
-
   // function that creates tweet element
   function createTweetElement(tweet) {
     var $tweet = $("<article>").addClass("tweet-box");
@@ -15,9 +11,8 @@ $(document).ready(function() {
     // Tweet header:
     var $header = $("<header>");
     $("<img>").addClass("avatar").attr("src", tweet.user.avatars.small).appendTo($header);
-    $("<span>").addClass("username").text(tweet.user.name).appendTo($header);
+    $("<span>").addClass("username").text(tweet.user.name).appendTo($header).append("<br>");
     $("<span>").addClass("handle").text(tweet.user.handle).appendTo($header);
-
     // Tweet body:
     var $tweetContent = $("<p>").addClass("tweet-input").text(tweet.content.text);
 
@@ -27,7 +22,7 @@ $(document).ready(function() {
     $("<span>").addClass("tweet-time").text($time).appendTo($footer);
     $("<i>").addClass("fa fa-retweet").appendTo($footer);
     $("<i>").addClass("fa fa-flag").appendTo($footer);
-    $("<i>").addClass("fa fa-thumbs-up").text(tweet.like).appendTo($footer);
+    $("<i>").addClass("fa fa-thumbs-o-up").addClass("like-button").appendTo($footer);
 
     // Append header, tweet content and footer to tweet
     $tweet.append($header, $tweetContent, $footer);
@@ -45,21 +40,21 @@ $(document).ready(function() {
 
   var $form = $("form");
   var $contentInput = $form.find("textarea[name=text]");
+  const $emptyBox = $("div.error-message.box-empty");
+  const $exceedLimit = $("div.error-message.too-long")
   $form.submit(function(evt) {
 // Prevent browser from redirecting when user click submit button
     evt.preventDefault();
     var content = $contentInput.val();
 // form validation
     if(content.length === 0) {
-      alert("Your box is empty");
-    }else if(content.length > 140) {
-      alert("You have exceed character limit");
-    }else{
+      $emptyBox.text("the box is empty");
+    } else if(content.length > 140) {
+      $exceedLimit.text("exceed words limit");
+    } else {
       createNewTweet();
     }
   });
-
-
   // Ajax POST request
   function createNewTweet() {
     $.ajax({
@@ -67,6 +62,7 @@ $(document).ready(function() {
       url: "/tweets/",
       method: "POST"
     }).done(loadTweets);
+    $contentInput.val("");
   }
   // GET request
   function loadTweets() {
@@ -79,13 +75,10 @@ $(document).ready(function() {
   }
   loadTweets();
 
-  // toggle button
-  $("button").click(function() {
-    $(".new-tweet").slideToggle();
-    $('textarea').focus();
-    $("body").scrollTop(0);
-  });
-
   $(".new-tweet").hide();
+
+  $("#tweet-display").on('click', '.like-button', function() {
+    alert('clicked');
+  });
 
 });

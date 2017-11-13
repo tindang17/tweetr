@@ -1,5 +1,5 @@
 /*individual tweets*/
-#tweet-display .tweet-box {
+article.tweet-box {
   margin: 0 auto;
   border-style: solid;
   border-width: 1px;
@@ -9,44 +9,52 @@
   overflow-wrap: break-word;
   opacity: .70;
   z-index: 20;
-  background-color: blue; }
+  background-color: blue;
+  width: 600px;
+}
 
-#tweet-display .tweet-box header {
+.tweet-box header {
   height: 75px;
   border-radius: 6px;
-  background-color: #eee; }
+  background-color: #eee;
+}
 
-#tweet-display .avatar {
+.avatar {
   margin: 10px 10px;
   float: left;
   border-radius: 10px;
   height: 57.59px;
-  width: 57.59px; }
+  width: 57.59px;
+}
 
-#tweet-display .username {
-  line-height: 1.9;
+.username {
+  line-height: 1.5;
   font-size: 2em;
-  text-align: left; }
+  text-align: left;
+}
 
-#tweet-display .handle {
-  float: right;
-  line-height: 3;
-  padding-right: 6px; }
+.handle {
+  padding-right: 6px;
+}
 
-#tweet-display .tweet-input {
-  margin-left: 10px;
-  color: white; }
-
-#tweet-display .tweet-box footer .tweet-time {
+.tweet-input {
   margin-left: 10px;
   color: white;
-  padding-bottom: 3px; }
+}
+
+.tweet-time {
+  margin-left: 10px;
+  color: white;
+  padding-bottom: 3px;
+}
 
 #tweet-display :hover {
-  opacity: 1; }
+  opacity: 1;
+}
 
 #tweet-display footer i {
   float: right;
   padding-right: 10px;
   color: white;
-  padding-bottom: 3px; }
+  padding-bottom: 3px;
+}

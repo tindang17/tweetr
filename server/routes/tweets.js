@@ -30,8 +30,8 @@ module.exports = function(DataHelpers) {
       content: {
         text: req.body.text
       },
-      created_at: Date.now(),
-      like: 0
+      created_at: Date.now()
+      // like: 0
     };
 
 

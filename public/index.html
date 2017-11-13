@@ -21,6 +21,7 @@
     <script src="https://cdn.jsdelivr.net/momentjs/2.18.1/moment.min.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/composer_char_counter.js"></script>
+    <script type="text/javascript" src="/scripts/toggle.js"></script>
   </head>
 
   <body>
@@ -37,14 +38,15 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-
         <!-- tweet form -->
-        <form action="/tweets" method="POST" >
+        <form id="tweetForm" action="/tweets" method="POST" >
           <textarea name="text" placeholder="What are you humming about?"></textarea>
-          <input type="submit" value="Tweet">
+          <input type=submit value="Tweet">
           <span class="counter">140</span>
         </form>
 
+        <div class="error-message box-empty"></div>
+        <div class="error-message too-long"></div>
       </section>
       <!-- the sub-container inside the main container -->
       <section id="tweet-display">
@@ -60,23 +62,12 @@
             <p class="tweet-input">your tweets go in here</p>
           <!-- tweet footer -->
           <footer>
-            <form action="/tweets/like" method="POST" >
-              <span class="tweet-time">10 mins ago</span>
-              <button type="button" name="retweet">
-                <i class="fa fa-retweet"></i>
-              </button>
-
-              <button type="button" name="flag">
-                <i class="fa fa-flag"></i>
-              </button>
-
-              <button type="button" name="like">
-                <i class="fa fa-thumbs-up"></i>
-              </button>
-            </form>
+            <span class="tweet-time">10 mins ago</span>
+            <i class="fa fa-retweet"></i>
+            <i class="fa fa-flag"></i>
+            <i class="fa fa-thumbs-up like"></i>
           </footer>
         </article>
-      </section>
 
     </main>
   </body>

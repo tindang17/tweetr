@@ -1,24 +1,33 @@
 main {
-  width: 450px;
   margin: 140px auto 0 auto;
-  background-color: #eee;
+  background-color: white;
   padding: 30px 30px;
-  z-index: 2; }
+  z-index: 2;
+}
+main.container {
+  width: 700px;
+  margin-top: 70px;
+}
 
 main h2 {
   border-bottom: solid;
-  border-width: 100%; }
+  border-width: 100%;
+}
 
 main section.new-tweet {
   border: 2px solid grey;
   border-radius: 6px;
   padding: 10px 10px;
-  margin: 2em 0;
-  background-color: lightgrey; }
+  margin: 2em auto;
+  background-color: lightgrey;
+  width: 600px;
+}
 
 main textarea {
   width: 100%;
-  padding: 2px 0 0 2px; }
+  padding: 2px 0 0 2px;
+}
 
 main span.counter {
-  float: right; }
+  float: right;
+}
