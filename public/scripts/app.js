@@ -9,20 +9,20 @@ $(document).ready(function() {
     var $tweet = $("<article>").addClass("tweet-box");
 
     // Tweet header:
-    var $header = $("<header>");
+    var $header = $("<header></header>");
     $("<img>").addClass("avatar").attr("src", tweet.user.avatars.small).appendTo($header);
-    $("<span>").addClass("username").text(tweet.user.name).appendTo($header).append("<br>");
-    $("<span>").addClass("handle").text(tweet.user.handle).appendTo($header);
+    $("<span></span>").addClass("username").text(tweet.user.name).appendTo($header).append("<br>");
+    $("<span></span>").addClass("handle").text(tweet.user.handle).appendTo($header);
     // Tweet body:
     var $tweetContent = $("<p>").addClass("tweet-input").text(tweet.content.text);
 
     // Tweet footer:
-    var $footer = $("<footer>");
+    var $footer = $("<footer></footer>");
     var $time = moment(tweet.created_at).fromNow();
-    $("<span>").addClass("tweet-time").text($time).appendTo($footer);
-    $("<i>").addClass("fa fa-retweet").appendTo($footer);
-    $("<i>").addClass("fa fa-flag").appendTo($footer);
-    $("<i>").addClass("fa fa-thumbs-o-up").addClass("like-button").appendTo($footer);
+    $("<span></span>").addClass("tweet-time").text($time).appendTo($footer);
+    $("<i></i>").addClass("fa fa-retweet").appendTo($footer);
+    $("<i></i>").addClass("fa fa-flag").appendTo($footer);
+    $("<i></i>").addClass("fa fa-thumbs-o-up").addClass("like-button").appendTo($footer);
 
     // Append header, tweet content and footer to tweet
     $tweet.append($header, $tweetContent, $footer);
@@ -40,17 +40,15 @@ $(document).ready(function() {
 
   var $form = $("form");
   var $contentInput = $form.find("textarea[name=text]");
-  const $emptyBox = $("div.error-message.box-empty");
-  const $exceedLimit = $("div.error-message.too-long")
   $form.submit(function(evt) {
 // Prevent browser from redirecting when user click submit button
     evt.preventDefault();
     var content = $contentInput.val();
 // form validation
     if(content.length === 0) {
-      $emptyBox.text("the box is empty");
+      alert("Your box is empty");
     } else if(content.length > 140) {
-      $exceedLimit.text("exceed words limit");
+      alert("You have exceed character limit");
     } else {
       createNewTweet();
     }
